@@ -1,0 +1,8 @@
+#!/bin/sh
+
+server=$(echo $DISPLAY | sed -r 's/[[:alnum:]]*:/:/')
+screen=$(echo $DISPLAY | sed -r 's/[[:alnum:]]*://')
+
+pkill Xvfb
+Xvfb $server -screen $screen 1280x1024x24 &
+java -jar /usr/local/bin/selenium-server.jar "$@"
