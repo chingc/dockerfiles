@@ -25,14 +25,18 @@ RUN set -x \
         \
         && rm -rf /var/lib/apt/lists/* \
         \
-        && wget -nv -O /usr/local/bin/selenium-server.jar http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar \
-        && wget -nv -O /usr/local/bin/chromedriver.zip http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
-        && unzip -d /usr/local/bin/ /usr/local/bin/chromedriver.zip \
-        && rm /usr/local/bin/chromedriver.zip
+        && mkdir /opt/selenium \
+        && cd /opt/selenium \
+        \
+        && wget -nv -O selenium-server.jar http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar \
+        && wget -nv -O chromedriver.zip http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
+        && unzip chromedriver.zip \
+        && rm chromedriver.zip \
+        && ln -s /opt/selenium/chromedriver /usr/local/bin
 
 COPY selenium /usr/local/bin/
 
 EXPOSE 4444
 
-ENTRYPOINT ["selenium"]
+ENTRYPOINT ["/usr/local/bin/selenium"]
 CMD [""]
