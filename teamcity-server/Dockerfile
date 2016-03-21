@@ -12,7 +12,6 @@ RUN set -x \
 RUN set -x \
         && wget -nv --show-progress --progress=dot:giga https://download.jetbrains.com/teamcity/TeamCity-${VERSION}.tar.gz \
         && wget -nv -O - https://download.jetbrains.com/teamcity/TeamCity-${VERSION}.tar.gz.sha256 | sha256sum -c - \
-        \
         && tar -xf TeamCity-${VERSION}.tar.gz -C /opt \
         && rm TeamCity-${VERSION}.tar.gz
 

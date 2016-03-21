@@ -8,6 +8,8 @@ ARG DISPLAY=:0
 
 ENV DISPLAY ${DISPLAY}
 
+COPY selenium /opt/selenium/
+
 RUN set -x \
         && gpg --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2 \
         && gpg --export 3EE67F3D0FF405B2 | apt-key add - \
@@ -23,18 +25,15 @@ RUN set -x \
                haveged \
                xvfb \
         \
-        && rm -rf /var/lib/apt/lists/* \
-        \
-        && mkdir /opt/selenium \
-        && cd /opt/selenium \
-        \
-        && wget -nv -O selenium-server.jar http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar \
-        && wget -nv -O chromedriver.zip http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
-        && unzip chromedriver.zip \
-        && rm chromedriver.zip \
-        && ln -s /opt/selenium/chromedriver /usr/local/bin
+        && rm -rf /var/lib/apt/lists/*
 
-COPY selenium /usr/local/bin/
+RUN set -x \
+        && wget -nv -O /opt/selenium/selenium-server.jar http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar \
+        && wget -nv http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
+        && unzip chromedriver_linux64.zip -d /opt/selenium \
+        && rm chromedriver_linux64.zip \
+        && ln -s /opt/selenium/chromedriver /usr/local/bin \
+        && ln -s /opt/selenium/selenium /usr/local/bin
 
 EXPOSE 4444
 
