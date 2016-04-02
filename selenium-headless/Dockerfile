@@ -8,6 +8,7 @@ ARG DISPLAY=:0
 
 ENV DISPLAY ${DISPLAY}
 
+COPY entropy_* /usr/local/bin/
 COPY selenium /opt/selenium/
 
 RUN set -x \
@@ -37,5 +38,7 @@ RUN set -x \
 
 EXPOSE 4444
 
-ENTRYPOINT ["/usr/local/bin/selenium"]
+WORKDIR /opt/selenium/
+
+ENTRYPOINT ["/opt/selenium/selenium"]
 CMD [""]

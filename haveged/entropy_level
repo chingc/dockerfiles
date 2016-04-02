@@ -1,3 +1,4 @@
 #!/bin/sh
+set -e
 
 cat /proc/sys/kernel/random/entropy_avail
