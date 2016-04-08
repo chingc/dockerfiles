@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "Draining entropy... (Ctrl-C to exit)"
+echo "Draining entropy pool... (Ctrl-C to exit)"
 cat /dev/random > /dev/null
