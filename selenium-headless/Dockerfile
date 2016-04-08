@@ -26,6 +26,7 @@ RUN set -x \
         && rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
+        && mkdir /opt/selenium \
         && wget -nv -O /opt/selenium/selenium-server.jar http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar \
         && wget -nv http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip -d /opt/selenium \
