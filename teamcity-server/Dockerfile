@@ -20,6 +20,3 @@ RUN set -x \
 EXPOSE 8111
 
 WORKDIR /opt/TeamCity/
-
-ENTRYPOINT ["/opt/TeamCity/bin/teamcity-server.sh"]
-CMD [""]

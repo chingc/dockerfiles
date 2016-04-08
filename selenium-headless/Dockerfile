@@ -39,6 +39,3 @@ RUN set -x \
 EXPOSE 4444
 
 WORKDIR /opt/selenium/
-
-ENTRYPOINT ["/opt/selenium/selenium"]
-CMD [""]
