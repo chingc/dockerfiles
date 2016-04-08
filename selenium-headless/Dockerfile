@@ -8,9 +8,6 @@ ARG DISPLAY=:0
 
 ENV DISPLAY ${DISPLAY}
 
-COPY entropy_* /usr/local/bin/
-COPY selenium /opt/selenium/
-
 RUN set -x \
         && gpg --keyserver pgp.mit.edu --recv-keys 3EE67F3D0FF405B2 \
         && gpg --export 3EE67F3D0FF405B2 | apt-key add - \
@@ -35,6 +32,9 @@ RUN set -x \
         && rm chromedriver_linux64.zip \
         && ln -s /opt/selenium/chromedriver /usr/local/bin \
         && ln -s /opt/selenium/selenium /usr/local/bin
+
+COPY entropy_* /usr/local/bin/
+COPY selenium /opt/selenium/
 
 EXPOSE 4444
 
