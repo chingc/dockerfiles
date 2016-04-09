@@ -19,7 +19,7 @@ RUN set -x \
         && echo 'deb http://dl.google.com/linux/chrome/deb/ stable main' > /etc/apt/sources.list.d/google-chrome.list
 
 RUN set -x \
-        && apt-get -q update && apt-get -qy install \
+        && apt-get -q update && apt-get -qy --no-install-recommends install \
                firefox \
                google-chrome-stable \
                haveged \
@@ -27,12 +27,12 @@ RUN set -x \
         && rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
-        && wget -nv -P /opt/selenium http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar
+        && wget -nv --show-progress --progress=dot:mega -P /opt/selenium http://selenium-release.storage.googleapis.com/${SELENIUM_VERSION}/selenium-server-standalone-${SELENIUM_VERSION}.${SELENIUM_PATCH}.jar
 
 RUN set -x \
-        && wget -nv http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
+        && wget -nv --show-progress --progress=dot:mega http://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip \
         && unzip chromedriver_linux64.zip -d /opt/selenium \
-        && rm chromedriver_linux64.zip \
+        && rm chromedriver_linux64.zip
 
 RUN set -x \
         && ln -s /opt/selenium/selenium-* /opt/selenium/selenium-server.jar \
