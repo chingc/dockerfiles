@@ -22,7 +22,6 @@ RUN set -x \
         && apt-get -q update && apt-get -qy --no-install-recommends install \
                firefox \
                google-chrome-stable \
-               haveged \
                xvfb \
         && rm -rf /var/lib/apt/lists/*
 
@@ -39,7 +38,6 @@ RUN set -x \
         && ln -s /opt/selenium/chromedriver /usr/local/bin \
         && ln -s /opt/selenium/selenium /usr/local/bin
 
-COPY entropy_* /usr/local/bin/
 COPY selenium /opt/selenium/
 
 EXPOSE 4444
