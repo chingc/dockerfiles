@@ -1,4 +1,5 @@
 #!/bin/sh
 
-echo "Draining entropy pool... (Ctrl-C to exit)"
-cat /dev/random > /dev/null
+while [ "$(entropy_level)" -gt "100" ]; do
+    dd if=/dev/random of=/dev/random bs=1c count=1 status=none
+done
