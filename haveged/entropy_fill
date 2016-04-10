@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [ "$(entropy_level)" -lt "1000" ]; then
+    echo "\033[0;31mEntropy pool is low.  Attempting to run haveged..."
+    echo "Container requirement: --cap-add SYS_ADMIN\033[0m"
+    haveged
+else
+    echo "\033[0;32mEntropy pool is good.  Fill not required.\033[0m"
+fi
