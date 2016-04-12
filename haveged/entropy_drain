@@ -1,5 +1,5 @@
 #!/bin/sh
 
 while [ "$(entropy_level)" -gt "100" ]; do
-    dd if=/dev/random of=/dev/random bs=1c count=1 status=none
+    dd if=/dev/random of=/dev/null bs=1c count=1 status=none
 done
