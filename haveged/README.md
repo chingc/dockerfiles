@@ -16,3 +16,8 @@ Running out of entropy appears to be a common problem when it comes to docker co
 ### Run
 
 `$ docker run --rm -it --cap-add SYS_ADMIN haveged`
+
+
+### Help
+
+`$ docker run --rm haveged --help`
