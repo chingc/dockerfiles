@@ -43,3 +43,6 @@ COPY selenium /opt/selenium/
 EXPOSE 4444
 
 WORKDIR /opt/selenium/
+
+ENTRYPOINT ["selenium"]
+CMD [""]

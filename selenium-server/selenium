@@ -5,4 +5,4 @@ screen=$(echo "${DISPLAY}" | sed -r 's/[[:alnum:]]*://')
 
 pkill Xvfb
 Xvfb "${server}" -screen "${screen}" 1280x1024x24 &
-java -jar /opt/selenium/selenium-server.jar "$@"
+exec java -jar /opt/selenium/selenium-server.jar "$@"
