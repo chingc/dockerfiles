@@ -9,4 +9,5 @@ COPY entropy_* /usr/local/bin/
 
 WORKDIR /usr/local/bin/
 
-CMD ["entropy_fill"]
+ENTRYPOINT ["entropy_fill", "-F"]
+CMD [""]

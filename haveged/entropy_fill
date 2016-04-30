@@ -5,9 +5,4 @@
 # immediately if haveged fails.
 entropy_drain
 
-haveged -F -v -1
-
-# This message is hidden if haveged is successfully
-# running in the foreground.
-echo
-echo "Docker container requirement: --cap-add SYS_ADMIN"
+exec haveged "$@"
