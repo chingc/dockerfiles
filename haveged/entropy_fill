@@ -1,12 +1,13 @@
 #!/bin/sh
 
-# Draining the entropy pool will force haveged to
-# fill it on startup.  This is desirable because
-# if it fails it will be known immediately.
+# Draining the entropy pool will force haveged
+# to fill it on startup.  This means you'll know
+# immediately if haveged fails.
 entropy_drain
 
 haveged -F -v -1
 
-# If haveged fails you'll see this message.
+# This message is hidden if haveged is successfully
+# running in the foreground.
 echo
 echo "Docker container requirement: --cap-add SYS_ADMIN"
