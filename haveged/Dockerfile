@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Ching Chow
+MAINTAINER Ching Chow <https://github.com/chingc>
 
 RUN set -x \
         && apk update && apk add haveged \

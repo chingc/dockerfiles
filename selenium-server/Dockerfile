@@ -1,5 +1,5 @@
 FROM java:openjdk-8-jre
-MAINTAINER Ching Chow
+MAINTAINER Ching Chow <https://github.com/chingc>
 
 ARG SELENIUM_VERSION=2.53
 ARG SELENIUM_PATCH=0
