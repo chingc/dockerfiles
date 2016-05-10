@@ -1,7 +1,7 @@
 FROM java:openjdk-8-jre
 MAINTAINER Ching Chow <https://github.com/chingc>
 
-ARG VERSION=9.1.6
+ARG VERSION=9.1.7
 
 ENV TEAMCITY_SERVER_MEM_OPTS -Xmx4g -XX:MaxPermSize=270m -XX:ReservedCodeCacheSize=350m
 
