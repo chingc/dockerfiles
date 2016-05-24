@@ -15,9 +15,11 @@ This `Dockerfile` will build an image that contains Google Chrome, Mozilla Firef
 
 ## Run
 
-`$ docker run --rm -it selenium-server`
+`$ docker run --rm -it -p 4444:4444 selenium-server`
 
 
 ## Help
 
 `$ docker run --rm selenium-server -help`
+
+Website: http://www.seleniumhq.org/

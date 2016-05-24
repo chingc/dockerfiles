@@ -21,3 +21,5 @@ Running out of entropy appears to be a common problem when it comes to docker co
 ## Help
 
 `$ docker run --rm haveged --help`
+
+Website: http://www.issihosts.com/haveged/
