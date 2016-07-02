@@ -1,8 +1,8 @@
 FROM java:openjdk-8-jre
 MAINTAINER Ching Chow <https://github.com/chingc>
 
-ARG SELENIUM_URL=http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
-ARG CHROMEDRIVER_URL=http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+ARG SELENIUM_URL=http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar
+ARG CHROMEDRIVER_URL=http://chromedriver.storage.googleapis.com/2.22/chromedriver_linux64.zip
 ARG DISPLAY=:0
 
 ENV DISPLAY ${DISPLAY}
