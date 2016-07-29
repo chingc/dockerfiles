@@ -19,9 +19,9 @@ RUN set -x \
 
 RUN set -x \
         && apt-get -q update && apt-get -qy --no-install-recommends install \
-               firefox \
-               google-chrome-stable \
-               xvfb \
+                firefox \
+                google-chrome-stable \
+                xvfb \
         && rm -rf /var/lib/apt/lists/*
 
 RUN set -x \
